@@ -11,13 +11,35 @@ import {
   TextInput,
   TouchableOpacity,
   Pressable,
+  Alert,
+  ToastAndroid,
 } from 'react-native';
 
 const App = () => {
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const onPressHandler = () => {
-    setSubmitted(!submitted);
+    if (name.length > 1) { 
+      setSubmitted(!submitted);
+    } else {
+      // Alert.alert("Warning", 
+      // "The name must be longer than 2 characters!",
+      // [ 
+      //   {text: "Do not show again", onPress: () => console.warn("Do not show again pressed!")},
+      //   {text: "Cancel", onPress: () => console.warn("Cancel Pressed!")},
+      //   {text: "OK", onPress: () => console.warn("OK Pressed!")},
+      // ], 
+      // {cancelable: true, onDismiss: () => console.warn("Alert dismissed!")}
+      // );
+
+      ToastAndroid.showWithGravityAndOffset(
+      "The name must be longer than 2 characters!", 
+      ToastAndroid.LONG,
+      ToastAndroid.TOP,
+      0,
+      0)
+    }
+   
   };
   
   return (
@@ -31,22 +53,6 @@ const App = () => {
           onChangeText={(value) => setName(value)}
           maxLength={50}
         />
-
-        {/* <Button
-          title={submitted ? "Logout" : "Login"}
-          style={styles.button}
-          onPress={onPressHandler}
-        /> */}
-
-        {/* <TouchableOpacity
-          onPress={onPressHandler}
-          style={styles.touchable}
-          activeOpacity={0.75}
-        >
-          <Text 
-            style={styles.text}
-          >{submitted ? "Logout" : "Login"}</Text>
-        </TouchableOpacity> */}
 
         <Pressable
           onPress={onPressHandler}
