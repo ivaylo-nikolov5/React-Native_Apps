@@ -3,20 +3,14 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
-  ScrollView,
-  RefreshControl,
-  FlatList,
-  SectionList,
   TextInput,
-  TouchableOpacity,
   Pressable,
-  Alert,
-  ToastAndroid,
   Modal,
   Image,
   ImageBackground,
 } from 'react-native';
+import CustomButton from './CustomButton';
+import Header from './Header';
 
 const App = () => {
   const [name, setName] = useState("");
@@ -36,6 +30,7 @@ const App = () => {
       style={styles.body}
       source={{uri: "https://pixabay.com/get/gbc0457c62df23bf137980fa41e3b9587f81dd5b760995786778eb446cfca4a2e2073e799d845e67a008ce7d63d12b133425d4648bcc647431387e2c5e1ecefd5_1280.jpg"}}
     >
+      <Header/>
       <Modal
         visible={showWarning}
         onRequestClose={() => {
@@ -74,7 +69,21 @@ const App = () => {
         maxLength={50}
       />
 
-      <Pressable
+      <CustomButton
+        onPressHandler={onPressHandler}
+        submitted={submitted}
+        title={submitted ? "Logout" : "Login"}
+        color={"#5a9dc4"}
+      />
+
+      <CustomButton
+        onPressHandler={() => {}}
+        title={"Test"}
+        color={"#ff00ff"}
+        style={{margin: 10}}
+      />
+
+      {/* <Pressable
         onPress={onPressHandler}
         hitSlop={{top: 10, bottom: 10, right: 10, left: 10}}
         android_ripple={{color: "#00f"}}
@@ -86,7 +95,7 @@ const App = () => {
         <Text 
           style={styles.text}
         >{submitted ? "Logout" : "Login"}</Text>
-      </Pressable>
+      </Pressable> */}
 
       {submitted? 
         <View style={styles.body}>
@@ -96,7 +105,7 @@ const App = () => {
 
           <Image
             style={styles.image}
-            source={require("./assets/done.png")}
+            source={require("../assets/done.png")}
             resizeMode={"stretch"}
           />
         </View>
@@ -104,7 +113,7 @@ const App = () => {
           <View style={styles.body}>
              <Image
                 style={styles.image}
-                source={require("./assets/error.png")}
+                source={require("../assets/error.png")}
                 resizeMode={"stretch"}
               />
           </View> 
