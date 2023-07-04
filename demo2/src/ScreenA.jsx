@@ -9,7 +9,8 @@ import {
 function ScreenA({navigation}) {
 
     const onPressHandler = () => {
-      navigation.navigate("Screen_B")
+      // navigation.navigate("Screen_B")
+      navigation.toggleDrawer();
     }
   
     return (
@@ -23,7 +24,7 @@ function ScreenA({navigation}) {
           onPress={onPressHandler}
         >
           <Text style={styles.text}>
-            Go to Screen B
+            Toggle Drawer
           </Text>
         </Pressable>
       </View>
