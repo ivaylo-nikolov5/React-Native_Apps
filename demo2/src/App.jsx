@@ -35,11 +35,11 @@ const App = () => {
             backgroundColor: "#fff",
             width: 300,
           },
-          swipeEnabled: false,
+          // swipeEnabled: false,
           headerTitleAlign: "center",
           headerStyle: {
             backgroundColor: "#0ff",
-            
+
           }
         }}
       >
@@ -71,6 +71,7 @@ const App = () => {
               />
             }
           }}
+          initialParams={{itemName: "Item from Drawer", itemId: 1}}
         />
       </Drawer.Navigator>
     </NavigationContainer>
