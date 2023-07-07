@@ -5,37 +5,36 @@ import {
   Text,
   View,
 } from 'react-native';
+import GlobalStyle from '../utils/GlobalStyle';
 
-function ScreenB({navigation, route}) {
-
-    const {itemName, itemId} = route.params;
+function ScreenA({navigation, route}) {
 
     const onPressHandler = () => {
-      navigation.navigate("Screen_A", {message: "message from B"})
-      // navigation.goBack();
-      // navigation.setParams({itemId: 2})
+      navigation.navigate("Screen_B");
+      // navigation.toggleDrawer();
     }
   
     return (
       <View style={styles.body}>
-        <Text style={styles.text}>
-          Screen B
+        <Text style={[
+          GlobalStyle.CustomFont,
+          styles.text]}>
+          Screen A
         </Text>
   
         <Pressable
           style={({pressed}) => ({backgroundColor: pressed ? "#ddd" : "#0f0", padding: 10,})}
           onPress={onPressHandler}
         >
-          <Text style={styles.text}>
-            Go to Screen A
+          <Text style={[
+            GlobalStyle.ButtonStyle,
+            styles.text]}>
+            Go to Screen B
           </Text>
         </Pressable>
-        <Text style={styles.text}>{itemName}</Text>
-        <Text style={styles.text}>ID: {itemId}</Text>
-  
+
+        <Text style={styles.text}>{route.params?.message}</Text>
       </View>
-  
-      
     )
 }
 
@@ -48,10 +47,12 @@ const styles = StyleSheet.create({
     },
  
     text: {
-     fontSize: 40,
-     fontWeight: "bold",
-     color: "#000"
+    //  fontSize: 40,
+     color: "#000",
+    //  fontWeight: 600,
+    //  fontFamily: "Fasthand-Regular"
+
     }
  });
 
-export default ScreenB;
+export default ScreenA;
