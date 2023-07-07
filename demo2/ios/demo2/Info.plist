@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,5 +51,42 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Fasthand-Regular.ttf</string>
+		<string>MartianMono.ttf</string>
+		<string>MartianMono-Bold.ttf</string>
+		<string>MartianMono-ExtraBold.ttf</string>
+		<string>MartianMono-ExtraLight.ttf</string>
+		<string>MartianMono-Light.ttf</string>
+		<string>MartianMono-Medium.ttf</string>
+		<string>MartianMono-Regular.ttf</string>
+		<string>MartianMono-SemiBold.ttf</string>
+		<string>MartianMono-Thin.ttf</string>
+		<string>MartianMono_Condensed-Bold.ttf</string>
+		<string>MartianMono_Condensed-ExtraBold.ttf</string>
+		<string>MartianMono_Condensed-ExtraLight.ttf</string>
+		<string>MartianMono_Condensed-Light.ttf</string>
+		<string>MartianMono_Condensed-Medium.ttf</string>
+		<string>MartianMono_Condensed-Regular.ttf</string>
+		<string>MartianMono_Condensed-SemiBold.ttf</string>
+		<string>MartianMono_Condensed-Thin.ttf</string>
+		<string>MartianMono_SemiCondensed-Bold.ttf</string>
+		<string>MartianMono_SemiCondensed-ExtraBold.ttf</string>
+		<string>MartianMono_SemiCondensed-ExtraLight.ttf</string>
+		<string>MartianMono_SemiCondensed-Light.ttf</string>
+		<string>MartianMono_SemiCondensed-Medium.ttf</string>
+		<string>MartianMono_SemiCondensed-Regular.ttf</string>
+		<string>MartianMono_SemiCondensed-SemiBold.ttf</string>
+		<string>MartianMono_SemiCondensed-Thin.ttf</string>
+		<string>MartianMono_SemiExpanded-Bold.ttf</string>
+		<string>MartianMono_SemiExpanded-ExtraBold.ttf</string>
+		<string>MartianMono_SemiExpanded-ExtraLight.ttf</string>
+		<string>MartianMono_SemiExpanded-Light.ttf</string>
+		<string>MartianMono_SemiExpanded-Medium.ttf</string>
+		<string>MartianMono_SemiExpanded-Regular.ttf</string>
+		<string>MartianMono_SemiExpanded-SemiBold.ttf</string>
+		<string>MartianMono_SemiExpanded-Thin.ttf</string>
+	</array>
 </dict>
 </plist>

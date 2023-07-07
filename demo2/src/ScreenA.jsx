@@ -6,6 +6,7 @@ import {
   View,
 } from 'react-native';
 
+
 function ScreenA({navigation, route}) {
 
     const onPressHandler = () => {
@@ -43,8 +44,10 @@ const styles = StyleSheet.create({
  
     text: {
      fontSize: 40,
-     fontWeight: "bold",
-     color: "#000"
+     color: "#000",
+     fontWeight: 600,
+    //  fontFamily: "Fasthand-Regular"
+
     }
  });
 

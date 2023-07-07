@@ -1,0 +1,141 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Fasthand-Regular.ttf",
+      "sha1": "4d884759d42a5aa94da5485ae967c0b1ee76ef2f"
+    },
+    {
+      "path": "assets/fonts/MartianMono.ttf",
+      "sha1": "fae740808b6b120c1356675c8867913808b54c37"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono-Bold.ttf",
+      "sha1": "94b8f27c05f39189de940dbc86e7e93328caab1f"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono-ExtraBold.ttf",
+      "sha1": "47a011685283385a8f7d0b0b333f12462f36c5e1"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono-ExtraLight.ttf",
+      "sha1": "ad49a20a4e5ed3f0fab03e27dd8c15c0bb3d1b31"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono-Light.ttf",
+      "sha1": "c08bf06461d4a4cce4c0994801522fac0c19063b"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono-Medium.ttf",
+      "sha1": "e3655fae38472e48d2cb8a37eff0aa0ab171dc97"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono-Regular.ttf",
+      "sha1": "47a4a7e7827a6dea21ae7a89aeb1e4fdd770b931"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono-SemiBold.ttf",
+      "sha1": "7fb2db82ed0cad20fa194ae045cd9ad7b877c62e"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono-Thin.ttf",
+      "sha1": "7da539d51166721ded2a285a4013fe990926da9c"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_Condensed-Bold.ttf",
+      "sha1": "ff14a2808cd642665a63b95b515c42f78257636a"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_Condensed-ExtraBold.ttf",
+      "sha1": "8e7ecbd4c274d4ddc6de15f9504601d00f6ee4ee"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_Condensed-ExtraLight.ttf",
+      "sha1": "70d747c5f1d958cbb68b4264d53334218ca3ecfe"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_Condensed-Light.ttf",
+      "sha1": "39059f05b24d3a44d276915317baf319a7f27afd"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_Condensed-Medium.ttf",
+      "sha1": "4e83976aa210bf3b878098e01e84c726f7ec0681"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_Condensed-Regular.ttf",
+      "sha1": "58f33c477ef5472e9414574005dd5653aee9ba22"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_Condensed-SemiBold.ttf",
+      "sha1": "5ab8001aad30fdb2e8dc1932521832bcef26e9b0"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_Condensed-Thin.ttf",
+      "sha1": "b8655b609bc2b1d06704fe71b4dffa7058f3f46d"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiCondensed-Bold.ttf",
+      "sha1": "087665cf661bbcce3bc77870223634fb85ce281f"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiCondensed-ExtraBold.ttf",
+      "sha1": "67bcd83faff75339f7aec81e21c3c6fdb46b6a56"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiCondensed-ExtraLight.ttf",
+      "sha1": "19b61bc825d623ff872074abfc08554a42218830"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiCondensed-Light.ttf",
+      "sha1": "4c254d1d0241036d125ad6eccd87fa874d0a4014"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiCondensed-Medium.ttf",
+      "sha1": "bf1c8088f363f825fecddd87b9f15ee8ce0680e5"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiCondensed-Regular.ttf",
+      "sha1": "b37c8d5adcceb8de8169884b3ee2bbc1ec69c7d3"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiCondensed-SemiBold.ttf",
+      "sha1": "dd0b7c1693f61ef23430d489e8ea91e80797933c"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiCondensed-Thin.ttf",
+      "sha1": "9833482341bed315ba6eda214104761cb1c59461"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiExpanded-Bold.ttf",
+      "sha1": "a1120c483e6fe99f927f6ffd96d1a1d0eb39311c"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiExpanded-ExtraBold.ttf",
+      "sha1": "e4544c7797ceabc2f143b8f97d01f3d53cda2183"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiExpanded-ExtraLight.ttf",
+      "sha1": "7e4a10f628b87268a55b9282ebc3c1a28ad9c053"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiExpanded-Light.ttf",
+      "sha1": "72e612f034b20763426888f7e7efbe9bbbc8285f"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiExpanded-Medium.ttf",
+      "sha1": "ea256f2cb4d5475586cfa09ec52d8fa312471f00"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiExpanded-Regular.ttf",
+      "sha1": "b07d7d2e42f347599c62541e9db32bba9f93802b"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiExpanded-SemiBold.ttf",
+      "sha1": "7d2666d9bd753d5f371ec2ba8229050234b49e1a"
+    },
+    {
+      "path": "assets/fonts/static/MartianMono_SemiExpanded-Thin.ttf",
+      "sha1": "7b509a28dce1c9ccdeda2b4d22a8e087c297109e"
+    }
+  ]
+}
