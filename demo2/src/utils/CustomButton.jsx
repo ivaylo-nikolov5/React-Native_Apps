@@ -22,14 +22,8 @@ const CustomButton = (props) => {
 }
 
 const styles = StyleSheet.create({
-    touchable: {
-        borderColor: "#000",
-        borderWidth: 1,
-        borderRadius: 10,
-    },
-
     text: {
-        color: "#000",
+        color: "#fff",
         fontSize: 20,
         margin: 10,
     }, 
