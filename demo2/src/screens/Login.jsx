@@ -2,6 +2,20 @@ import {React, useState, useEffect} from "react";
 import { StyleSheet, View, Image, Text, TextInput, Alert } from "react-native";
 import CustomButton from "../utils/CustomButton";
 import AsyncStorage from "@react-native-async-storage/async-storage"
+import SQLite from "react-native-sqlite-storage";
+
+
+const db = SQLite.openDatabase(
+    {
+        name: "MainDB",
+        location: "default",
+
+    },
+    () => {
+
+    },
+    error=>{console.log(error)}
+);
 
 function Login({ navigation }) {
 
@@ -9,40 +23,78 @@ function Login({ navigation }) {
     const [age, setAge] = useState("");
 
     useEffect(() => {
+        createTable();
         getData();
-      }, []);
+    }, []);
+
+
+    const createTable = () => {
+        db.transaction((tx) => {
+            tx.executeSql(
+                "CREATE TABLE IF NOT EXISTS "
+                + "Users "
+                + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Age INTEGER);"
+            )
+        })
+    };
   
-      const getData = () => {
-        try {
-          AsyncStorage.getItem("UserData")
-          .then(value => {
-            if (value != null) {
-              navigation.navigate("Home")
-            } else {
-              console.log("Name is null!");
+    const getData = () => {
+    try {
+    //   AsyncStorage.getItem("UserData")
+    //   .then(value => {
+    //     if (value != null) {
+    //       navigation.navigate("Home")
+    //     } else {
+    //       console.log("Name is null!");
+    //     }
+    //   }
+
+    //   )
+        db.transaction((tx) => {
+            tx.executeSql(
+            "SELECT Name, Age FROM Users",
+            [],
+            (tx, results) => {
+                let len = results.rows.length;
+                if (len > 0) { 
+                    navigation.navigate("Home");
+                }
             }
-          }
-  
-          )
-  
-        } catch (error) {
-          console.log(error);
-        }
-      }
+            )  
+        })          
+
+    } catch (error) {
+        Alert.alert(error)
+    }
+    }
 
     const setData = async () => {
         if (name.length <= 2 || age.length < 1 || age.length > 3) {
             Alert.alert("Error", "Please enter valid data!")
         } else {
-            let user = {
-                Name: name,
-                Age: age
-            }
+            // let user = {
+            //     Name: name,
+            //     Age: age
+            // }
+
+            // await AsyncStorage.setItem("UserData", JSON.stringify(user))
             try {
-                await AsyncStorage.setItem("UserData", JSON.stringify(user))
+                await db.transaction(async (tx) => {
+                    await tx.executeSql(
+                        "INSERT INTO Users (Name, Age) VALUES ('" + name + "', "+ age +")"
+                    )
+                });
+
+                // await db.transaction(async (tx) => {
+                //     await tx.executeSql(
+                //         "INSERT INTO Users (Name, Age) VALUES (?,?)",
+                //         [name, age]
+                //     )
+                // });
+
                 navigation.navigate("Home");
             } catch (error) {
-                console.log(error);
+                Alert.alert(error)
             }
         }
     }
@@ -53,11 +105,11 @@ function Login({ navigation }) {
         >
             <Image
                 style={styles.logo}
-                source={require("../../assets/images/logo.png")}
+                source={require("../../assets/images/sqlite.png")}
             />
             <Text
                 style={styles.text}
-            >Async Storage
+            >
             </Text>
 
             <TextInput
@@ -102,6 +154,7 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
         margin: 20,
+
     },
     text: {
         fontSize: 30,
