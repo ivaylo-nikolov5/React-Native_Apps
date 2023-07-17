@@ -4,10 +4,11 @@ import {
     View,
 
 } from "react-native";
+import globalStyles from "../styles/globalStyles";
 
 function Tasks() {
     return (
-        <View>
+        <View style={globalStyles.body}>
             <Text>Your tasks</Text>
         </View>
     )
