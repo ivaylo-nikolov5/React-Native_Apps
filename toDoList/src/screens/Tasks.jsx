@@ -1,29 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, View, ScrollView } from "react-native";
 import globalStyles from "../styles/globalStyles";
 import CustomButton from "../funcs/components/CustomButton";
 import TextInp from "../funcs/components/TextInp";
 import Task from "../funcs/components/Task";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function Tasks() {
   const [currentTasks, setCurrentTasks] = useState([]);
   const [text, setText] = useState('');
 
+  // Load tasks from AsyncStorage on component mount
+  useEffect(() => {
+    loadTasksFromStorage();
+  }, []);
+
+  // Function to load tasks from AsyncStorage
+  const loadTasksFromStorage = async () => {
+    try {
+      const storedTasks = await AsyncStorage.getItem('tasks');
+      if (storedTasks !== null) {
+        setCurrentTasks(JSON.parse(storedTasks));
+      }
+    } catch (error) {
+      console.error('Error loading tasks from AsyncStorage:', error);
+    }
+  };
+
+  // Function to save tasks to AsyncStorage
+  const saveTasksToStorage = async (tasks) => {
+    try {
+      await AsyncStorage.setItem('tasks', JSON.stringify(tasks));
+    } catch (error) {
+      console.error('Error saving tasks to AsyncStorage:', error);
+    }
+  };
+
   const addTask = () => {
-    setCurrentTasks([{ id: currentTasks.length, text: text }, ...currentTasks]);
+    const newTask = { id: currentTasks.length, text: text };
+    setCurrentTasks([newTask, ...currentTasks]);
     setText("");
+    saveTasksToStorage([newTask, ...currentTasks]); // Save updated tasks to AsyncStorage
   };
 
   const removeTask = (id) => {
-    let newTasks = [];
-  
-    for (let i = 0; i < currentTasks.length; i++) {
-      if (currentTasks[i].id !== id) {
-        newTasks.push(currentTasks[i]);
-      }
-    }
-  
+    const newTasks = currentTasks.filter(task => task.id !== id);
     setCurrentTasks(newTasks);
+    saveTasksToStorage(newTasks); // Save updated tasks to AsyncStorage
   };
     
   const tasks = currentTasks.map((task) => (
@@ -34,7 +57,6 @@ function Tasks() {
     <View style={globalStyles.body}>
       <Text style={globalStyles.tasksTitle}>Your Current Tasks</Text>
 
-      {/* Wrap the tasks view with ScrollView */}
       <ScrollView style={{
         height: 300,
         borderWidth: 2,
