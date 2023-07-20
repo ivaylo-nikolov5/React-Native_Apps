@@ -4,7 +4,7 @@ import { Calendar} from 'react-native-calendars';
 
 function CalendarScreen(props) {
   const m = String(props.month).padStart(2, "0");
-  const d = String(props.day + 2).padStart(2, "0");
+  const d = String(props.day).padStart(2, "0");
   const today = `${props.year}-${m}-${d}`;
 
   const customTheme = {
@@ -22,7 +22,7 @@ function CalendarScreen(props) {
           renderArrow={() => null}
           renderHeader={() => null}
           theme={customTheme}
-          markedDates={{ [today]: { marked: true, dotColor: "#3370ff" } }} // Wrap today variable in square brackets
+          markedDates={{ [today]: { marked: true, dotColor: "#3370ff",  } }} // Wrap today variable in square brackets
         />
       </View>
     </View>

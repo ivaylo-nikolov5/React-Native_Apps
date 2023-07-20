@@ -3,6 +3,7 @@ import { JumpingTransition } from "react-native-reanimated";
 
 const globalStyles = StyleSheet.create({
     body: {
+        position: "relative",
         backgroundColor: "#cfcfcf",
         flex: 1,
         justifyContent: "center",
@@ -64,7 +65,40 @@ const globalStyles = StyleSheet.create({
         marginTop: -20,
         borderBottomColor: "#000",
         borderBottomWidth: 3,
-    }
+    },
+
+    tasksTitle: {
+        marginTop: 20,
+        fontSize: 30,
+        fontWeight: "bold",
+        color: "#000",
+        textDecorationLine: "underline",
+        textDecorationColor: "#000",
+    },
+
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    taskInpContainer: {
+        position: "absolute",
+        bottom: 10,
+        width: 300,
+        height: 45,
+        justifyContent: "center",
+        alignItems: "center",
+        borderWidth: 2,
+        borderRadius: 10,
+    },
+    taskInput: {
+        fontSize: 19,
+        
+    },
+
+    currentTasksContainer: {
+        marginTop: 10
+    },
 
 
 });
