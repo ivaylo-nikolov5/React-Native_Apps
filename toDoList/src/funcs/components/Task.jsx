@@ -21,7 +21,8 @@ const Task = (props) => {
         }}>
             <Text style={{
                 color: "#000",
-                fontSize: 23
+                fontSize: 23,
+                maxWidth: "80%"
             }}>{props.text}</Text>
             <CustomButton
                 title="✔️"

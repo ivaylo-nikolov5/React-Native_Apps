@@ -10,7 +10,7 @@ const TextInp = (props) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {marginBottom: props.isKeyboardOpen ? 20 : 0}]}>
       <View style={styles.taskInpContainer}>
         <TextInput
           style={styles.taskInput}

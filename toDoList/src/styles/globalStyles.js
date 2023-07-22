@@ -68,6 +68,8 @@ const globalStyles = StyleSheet.create({
     },
 
     tasksTitle: {
+        position: "absolute",
+        top: 10,
         marginTop: 20,
         fontSize: 30,
         fontWeight: "bold",
@@ -80,6 +82,7 @@ const globalStyles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        padding: 10,
     },
     taskInpContainer: {
         position: "absolute",
@@ -97,7 +100,17 @@ const globalStyles = StyleSheet.create({
     },
 
     currentTasksContainer: {
-        marginTop: 10
+        marginTop: 20
+    },
+    
+    buttonContainer: {
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-between",
+        position: "absolute",
+        bottom: 0,
+        width: "100%",
+        paddingHorizontal: 10,
     },
 
 
