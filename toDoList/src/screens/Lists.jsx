@@ -63,13 +63,13 @@ function Lists() {
     };
 
     const removeList = (id) => {
-        // const newTasks = currentTasks.filter(task => task.id !== id);
-        // setCurrentTasks(newTasks);
-        // saveTasksToStorage(newTasks); // Save updated tasks to AsyncStorage
+        const newLists= lists.filter(list => list.id !== id);
+        setLists(newLists);
+        saveListsToStorage(newLists); // Save updated tasks to AsyncStorage
     };
 
     const listsComponent = lists.map((list) => (
-        <List key={list.id} id={list.id} name={list.text} removeList={removeList} />
+        <List key={list.id} id={list.id} name={list.newListName} removeList={removeList} />
     ));
 
 
@@ -93,6 +93,7 @@ function Lists() {
             />
 
             <CustomButton
+                pressedColor="#04c73890"
                 color="#04c73890"
                 title="Add List"
                 style={{

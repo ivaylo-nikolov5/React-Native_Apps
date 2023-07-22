@@ -8,7 +8,7 @@ const CustomButton = (props) => {
         hitSlop={{top: 10, bottom: 10, right: 10, left: 10}}
         android_ripple={{color: "#03541b"}}
         style={({pressed}) => [
-          {backgroundColor: pressed ? "#04c73890" : props.color},
+          {backgroundColor: pressed ? props.pressedColor : props.color},
           {...props.style}
         ]}
       >
