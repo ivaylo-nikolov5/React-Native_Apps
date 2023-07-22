@@ -13,11 +13,13 @@ import TextInp from "../funcs/components/TextInp";
 import CustomButton from "../funcs/components/CustomButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import List from "../funcs/components/List";
+import CustomAlert from "../funcs/components/CustomAlert";
 
 function Lists() {
     const [lists, setLists] = useState([]);
     const [newListName, setNewListName] = useState('');
     const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+    const [isAlertVisible, setAlertVisible] = useState(false);
 
     useEffect(() => {
         Keyboard.addListener(
@@ -56,6 +58,11 @@ function Lists() {
     };
 
     const addList = () => {
+        if (newListName.length <= 0 || newListName.length > 30) {
+            setAlertVisible(true);
+            setNewListName("");
+            return
+        }
         const newList = { id: lists.length, newListName: newListName };
         setLists([newList, ...lists]);
         setNewListName("");
@@ -66,6 +73,10 @@ function Lists() {
         const newLists= lists.filter(list => list.id !== id);
         setLists(newLists);
         saveListsToStorage(newLists); // Save updated tasks to AsyncStorage
+    };
+
+    const handleOKPress = () => {
+        setAlertVisible(false);
     };
 
     const listsComponent = lists.map((list) => (
@@ -83,9 +94,16 @@ function Lists() {
                 </View>
             </ScrollView>
 
+            <CustomAlert
+                visible={isAlertVisible}
+                title="Warning!"
+                message="The list name should be between 1 and 30 characters!"
+                onOKPress={handleOKPress}
+            />
+
             <TextInp
                 styles={globalStyles}
-                placeholder="Enter a new task..."
+                placeholder="Enter a new list name..."
                 phColor="#000"
                 text={newListName}
                 isKeyboardOpen={isKeyboardOpen}
