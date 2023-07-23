@@ -14,12 +14,17 @@ import CustomButton from "../funcs/components/CustomButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import List from "../funcs/components/List";
 import CustomAlert from "../funcs/components/CustomAlert";
+import Task from "../funcs/components/Task";
+
 
 function Lists() {
     const [lists, setLists] = useState([]);
     const [newListName, setNewListName] = useState('');
     const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
     const [isAlertVisible, setAlertVisible] = useState(false);
+    const [newTaskName, setNewTaskName] = useState(''); // State variable to hold the new task name
+    const [selectedListId, setSelectedListId] = useState(null); // State variable to hold the ID of the selected list
+    const [selectedListTasks, setSelectedListTasks] = useState([]); 
 
     useEffect(() => {
         Keyboard.addListener(
@@ -61,13 +66,45 @@ function Lists() {
         if (newListName.length <= 0 || newListName.length > 30) {
             setAlertVisible(true);
             setNewListName("");
-            return
+            return;
         }
-        const newList = { id: lists.length, newListName: newListName };
+    
+        const newList = { 
+            id: lists.length, 
+            newListName: newListName, 
+            tasks: [],
+        }; // Add the "tasks" key
         setLists([newList, ...lists]);
         setNewListName("");
         saveListsToStorage([newList, ...lists]); // Save updated tasks to AsyncStorage
     };
+
+    const addTaskToList = () => {
+        if (!selectedListId) {
+            return;
+        }
+    
+        if (newTaskName.length <= 0 || newTaskName.length > 30) {
+            setAlertVisible(true);
+            setNewTaskName("");
+            return;
+        }
+    
+        const updatedLists = lists.map((list) => {
+            if (list.id === selectedListId) {
+                const updatedList = { ...list, tasks: [...list.tasks, newTaskName] };
+                return updatedList;
+            }
+            return list;
+        });
+    
+        setLists(updatedLists);
+        setSelectedListTasks([...selectedListTasks, newTaskName]);
+        setNewTaskName("");
+        saveListsToStorage(updatedLists); // Save updated lists to AsyncStorage
+    };
+    
+    
 
     const removeList = (id) => {
         const newLists= lists.filter(list => list.id !== id);
@@ -80,7 +117,16 @@ function Lists() {
     };
 
     const listsComponent = lists.map((list) => (
-        <List key={list.id} id={list.id} name={list.newListName} removeList={removeList} />
+        <List 
+            key={list.id} 
+            id={list.id} 
+            name={list.newListName} 
+            removeList={removeList} 
+            setSelectedListId={setSelectedListId}
+            lists={lists}
+            setSelectedListTasks={setSelectedListTasks}
+            selectedListTasks={selectedListTasks}
+        />
     ));
 
 
@@ -100,6 +146,54 @@ function Lists() {
                 message="The list name should be between 1 and 30 characters!"
                 onOKPress={handleOKPress}
             />
+
+            {selectedListId !== null && (
+                <>
+                    <ScrollView
+                        style={{
+                            height: 200, // Adjust the height as needed
+                            borderWidth: 2,
+                            marginTop: 10,
+                            paddingTop: -10,
+                            borderRadius: 20,
+                            paddingLeft: 15,
+                            paddingRight: 15,
+                            borderColor: "#5c5c5c",
+                            display: selectedListTasks.length > 0 ? "flex" : "none",
+                        }}
+                    >
+                        {selectedListTasks.map((task, index) => (
+                            <Task key={index} id={index} name={task} />
+                        ))}
+                    </ScrollView>
+
+                    <TextInp
+                        styles={globalStyles}
+                        placeholder="Enter a new task..."
+                        phColor="#000"
+                        text={newTaskName}
+                        isKeyboardOpen={isKeyboardOpen}
+                        setText={setNewTaskName}
+                    />
+
+                    <CustomButton
+                        pressedColor="#04c73890"
+                        color="#04c73890"
+                        title="Add Task"
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: 10,
+                            width: 120,
+                            height: 48,
+                            display: isKeyboardOpen ? "none" : "block",
+                        }}
+                        text={newTaskName}
+                        onPressHandler={addTaskToList}
+                    />
+                </>
+            )}
 
             <TextInp
                 styles={globalStyles}

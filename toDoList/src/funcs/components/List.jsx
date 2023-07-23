@@ -2,11 +2,23 @@ import React from "react";
 import {
     View,
     Text,
+    TouchableHighlight
 } from "react-native";
-import CustomButton from "./CustomButton";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
+import CustomButton from "./CustomButton";
+import Task from "./Task";
+
 const List = (props) => { 
+
+    const handleListClick = () => {
+        props.setSelectedListId(props.id);
+        const selectedList = props.lists.find((list) => list.id === props.id);
+        if (selectedList) {
+            props.setSelectedListTasks(selectedList.tasks);
+        }
+    };
+
     return (
         <View style= {{
             display: "flex",
@@ -17,15 +29,26 @@ const List = (props) => {
             borderBottomWidth: 2,
             marginBottom: 15
         }}>
-            <Text style={{
-                fontSize: 25,
-                maxWidth: "80%",
-                fontWeight: "bold",
-                color: "#000",
-                marginLeft: 5,
-            }}>
-                {props.name}
-            </Text>
+
+            <View style={{width: "80%"}}>
+                <TouchableHighlight 
+                    underlayColor="transparent"
+                    onPress={handleListClick}
+                >
+                    <Text style={{
+                        fontSize: 25,
+                        maxWidth: "80%",
+                        fontWeight: "bold",
+                        color: "#000",
+                        marginLeft: 5,
+                    }}>
+                        {props.name}
+
+                    </Text>
+                </TouchableHighlight>
+            </View>
+
+            
 
             <CustomButton
                 pressedColor="#f00"
