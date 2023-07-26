@@ -55,7 +55,7 @@ function Tasks() {
     };
 
     const addTask = () => {
-        if (text.length <= 0 || tasks.length > 100) {
+        if (text.length <= 0 || text.length > 100) {
             setAlertVisible(true);
             setText("");
             return
