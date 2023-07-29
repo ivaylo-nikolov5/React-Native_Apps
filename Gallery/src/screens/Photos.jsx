@@ -3,9 +3,11 @@ import {
     View 
 } from "react-native";
 
-function Photos(props) {
+import appStyles from "../../assets/styles/appStyles";
+
+function Photos() {
     return (
-        <View>
+        <View style={appStyles.body}>
             <Text>Photos Tab</Text>
         </View>
     )

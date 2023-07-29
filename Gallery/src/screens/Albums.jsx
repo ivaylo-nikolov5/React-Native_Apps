@@ -3,10 +3,12 @@ import {
     Text 
 } from "react-native";
 
+import appStyles from "../../assets/styles/appStyles";
 
-function Albums(props) {
+
+function Albums() {
     return (
-        <View>
+        <View style={appStyles.body}>
             <Text>Albums Tab</Text>
         </View>    
     )
