@@ -3,7 +3,7 @@ import {
     Text 
 } from "react-native";
 
-import appStyles from "../../assets/styles/appStyles";
+import appStyles from "../../assets/styles/photosStyles";
 
 
 function Albums() {

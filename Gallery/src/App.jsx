@@ -27,15 +27,15 @@ function App() {
               iconName = "images";
             }
 
-            size = focused ? 27 : 25;
+            size = focused ? 29 : 25;
             color = focused ? "#5265f2" : "#858585";
 
-            return <FontAwesome5 name={iconName} size={size} color={color} />;
+            return <FontAwesome5 name={iconName} size={size} color={color}/>;
           },
         })}
         activeColor="#5265f2"
         barStyle={{
-          backgroundColor: '#191c30',
+          backgroundColor: '#000000',
         }}
       >
         <Tab.Screen 
