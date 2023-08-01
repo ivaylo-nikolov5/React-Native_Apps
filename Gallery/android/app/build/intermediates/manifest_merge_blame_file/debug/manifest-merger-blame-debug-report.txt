@@ -1,0 +1,108 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.gallery"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="33" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\debug\AndroidManifest.xml:5:5-77
+11-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\debug\AndroidManifest.xml:5:22-75
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:3:5-67
+12-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:3:22-64
+13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+13-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:4:5-80
+13-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:4:22-77
+14    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+14-->[com.facebook.flipper:flipper:0.182.0] C:\Users\wwwiv\.gradle\caches\transforms-3\d1c9789b45a06f1dd3f0d9d04f57b1f5\transformed\jetified-flipper-0.182.0\AndroidManifest.xml:16:5-76
+14-->[com.facebook.flipper:flipper:0.182.0] C:\Users\wwwiv\.gradle\caches\transforms-3\d1c9789b45a06f1dd3f0d9d04f57b1f5\transformed\jetified-flipper-0.182.0\AndroidManifest.xml:16:22-73
+15    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+15-->[:react-native-fs] C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\node_modules\react-native-fs\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-81
+15-->[:react-native-fs] C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\node_modules\react-native-fs\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:22-78
+16
+17    <application
+17-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:7:5-26:19
+18        android:name="com.gallery.MainApplication"
+18-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:8:7-38
+19        android:allowBackup="false"
+19-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:12:7-34
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.7.0] C:\Users\wwwiv\.gradle\caches\transforms-3\d8fee8d09d6e7372e86e829df397c41e\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+21        android:debuggable="true"
+22        android:icon="@mipmap/ic_launcher"
+22-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:10:7-41
+23        android:label="@string/app_name"
+23-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:9:7-39
+24        android:roundIcon="@mipmap/ic_launcher_round"
+24-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:11:7-52
+25        android:theme="@style/AppTheme"
+25-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:13:7-38
+26        android:usesCleartextTraffic="true" >
+26-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\debug\AndroidManifest.xml:8:9-44
+27        <activity
+27-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\debug\AndroidManifest.xml:11:9-111
+28            android:name="com.facebook.react.devsupport.DevSettingsActivity"
+28-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\debug\AndroidManifest.xml:11:19-83
+29            android:exported="false" />
+29-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\debug\AndroidManifest.xml:11:84-108
+30        <activity
+30-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:14:7-25:18
+31            android:name="com.gallery.MainActivity"
+31-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:15:9-37
+32            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+32-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:17:9-118
+33            android:exported="true"
+33-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:20:9-32
+34            android:label="@string/app_name"
+34-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:16:9-41
+35            android:launchMode="singleTask"
+35-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:18:9-40
+36            android:windowSoftInputMode="adjustResize" >
+36-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:19:9-51
+37            <intent-filter>
+37-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:21:9-24:25
+38                <action android:name="android.intent.action.MAIN" />
+38-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:22:13-65
+38-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:22:21-62
+39
+40                <category android:name="android.intent.category.LAUNCHER" />
+40-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:23:13-73
+40-->C:\Users\wwwiv\Desktop\Coding\React-Native_Apps\Gallery\android\app\src\main\AndroidManifest.xml:23:23-70
+41            </intent-filter>
+42        </activity>
+43
+44        <meta-data
+44-->[com.facebook.soloader:soloader:0.10.5] C:\Users\wwwiv\.gradle\caches\transforms-3\f0e22ab275b956e8514bed3c28b4aa99\transformed\jetified-soloader-0.10.5\AndroidManifest.xml:12:9-14:37
+45            android:name="com.facebook.soloader.enabled"
+45-->[com.facebook.soloader:soloader:0.10.5] C:\Users\wwwiv\.gradle\caches\transforms-3\f0e22ab275b956e8514bed3c28b4aa99\transformed\jetified-soloader-0.10.5\AndroidManifest.xml:13:13-57
+46            android:value="false" />
+46-->[com.facebook.soloader:soloader:0.10.5] C:\Users\wwwiv\.gradle\caches\transforms-3\f0e22ab275b956e8514bed3c28b4aa99\transformed\jetified-soloader-0.10.5\AndroidManifest.xml:14:13-34
+47
+48        <provider
+48-->[androidx.emoji2:emoji2:1.0.0] C:\Users\wwwiv\.gradle\caches\transforms-3\60b7a97d3ccbc46176b9eafb2f454d4d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+49            android:name="androidx.startup.InitializationProvider"
+49-->[androidx.emoji2:emoji2:1.0.0] C:\Users\wwwiv\.gradle\caches\transforms-3\60b7a97d3ccbc46176b9eafb2f454d4d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+50            android:authorities="com.gallery.androidx-startup"
+50-->[androidx.emoji2:emoji2:1.0.0] C:\Users\wwwiv\.gradle\caches\transforms-3\60b7a97d3ccbc46176b9eafb2f454d4d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+51            android:exported="false" >
+51-->[androidx.emoji2:emoji2:1.0.0] C:\Users\wwwiv\.gradle\caches\transforms-3\60b7a97d3ccbc46176b9eafb2f454d4d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+52            <meta-data
+52-->[androidx.emoji2:emoji2:1.0.0] C:\Users\wwwiv\.gradle\caches\transforms-3\60b7a97d3ccbc46176b9eafb2f454d4d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+53                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+53-->[androidx.emoji2:emoji2:1.0.0] C:\Users\wwwiv\.gradle\caches\transforms-3\60b7a97d3ccbc46176b9eafb2f454d4d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+54                android:value="androidx.startup" />
+54-->[androidx.emoji2:emoji2:1.0.0] C:\Users\wwwiv\.gradle\caches\transforms-3\60b7a97d3ccbc46176b9eafb2f454d4d\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+55            <meta-data
+55-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\wwwiv\.gradle\caches\transforms-3\8dba42aa5d50ebca6ac0b9ee1b49aa6b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+56                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+56-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\wwwiv\.gradle\caches\transforms-3\8dba42aa5d50ebca6ac0b9ee1b49aa6b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+57                android:value="androidx.startup" />
+57-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\wwwiv\.gradle\caches\transforms-3\8dba42aa5d50ebca6ac0b9ee1b49aa6b\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+58        </provider>
+59    </application>
+60
+61</manifest>
