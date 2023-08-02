@@ -37,22 +37,28 @@ const photosStyles = StyleSheet.create({
         alignItems: "center",
     },
 
+    pageContainer: {
+        display: "flex",
+        flexDirection: "column",
+    },
+
     titleContainer: {
         width: "100%",        
         display: "flex",
         justifyContent: "center",
-        marginTop: 20,
-        backgroundColor: "transparent"
 
     },
 
     title: {
         color: "#fff",
         fontFamily: "Arial",
-        fontSize: 35,
-        marginLeft: 25,
-        marginBottom: 20,
+        fontSize: 55,
+        marginLeft: 20
     },
+
+    mediaContainer: {
+        marginTop: 50,
+    }
 })
 
 export default photosStyles;

@@ -1,55 +1,78 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, FlatList, Image } from "react-native";
+import { Text, View, FlatList, Image, Animated, ScrollView } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome5';
-
 
 import getMediaFiles from "../funcs/getMediaFiles";
 import photosStyles from "../../assets/styles/photosStyles";
 
 function Photos() {
     const [mediaData, setMediaData] = useState([]);
+    const scrollY = new Animated.Value(0);
 
     useEffect(() => {
-      getMediaFiles(setMediaData);
+        getMediaFiles(setMediaData);
     }, []);
 
-    
+    const renderMediaItem = ({ item }) => (
+        <Image
+            source={{ uri: `file://${item}` }}
+            style={{ width: 122, height: 122, margin: 5 }}
+        />
+    );
 
-  return (
-      <View style={photosStyles.body}>
-          <View style={photosStyles.headerContainer}>
-              <View>
-                  {/* <Text style={photosStyles.headerText}>Photos</Text> */}
-              </View>
-            
-              <View style={photosStyles.headerIconsContainer}>
-                  <Icon name="comments" size={25} color="#fff" style={{marginRight: 20}}/>
-                  <Icon name="info" size={25} color="#fff"/>
-              </View>
-          </View>
-          <View style={photosStyles.titleContainer}>
-              <Text style={photosStyles.title}>Photos</Text>
-          </View>
+    const translateY = scrollY.interpolate({
+        inputRange: [0, 200],
+        outputRange: [0, -65],
+        extrapolate: 'clamp'
+    });
 
-          <View>
-              {/* Display media files */}
-              <FlatList
-                  data={mediaData}
-                  keyExtractor={(item, index) => index.toString()}
-                  renderItem={({ item }) => (
-                    <Image
-                      source={{ uri: `file://${item}` }} // Use 'file://' prefix to load local file paths
-                      style={{ width: 100, height: 100, margin: 5 }}
-                    />
-                  )}
-                  numColumns={3}
-              />
-          </View>
+    const translateYPhotos = scrollY.interpolate({
+        inputRange: [0, 200],
+        outputRange: [0, -20],
+        extrapolate: 'clamp'
+    });
 
-          
+    const titleOpacity = scrollY.interpolate({
+        inputRange: [0, 150],
+        outputRange: [1, 0],
+        extrapolate: 'clamp'
+    });
 
+    const headerTitleOpacity = scrollY.interpolate({
+        inputRange: [0, 150],
+        outputRange: [0, 1],
+        extrapolate: 'clamp'
+    });
 
-      </View>
+    return (
+        <View style={photosStyles.body}>
+            <View style={photosStyles.headerContainer}>
+                <Animated.View style={{ opacity: headerTitleOpacity }}>
+                    <Text style={photosStyles.headerText}>Photos</Text>
+                </Animated.View>
+
+                <View style={photosStyles.headerIconsContainer}>
+                    <Icon name="comments" size={25} color="#fff" style={{ marginRight: 20 }} />
+                    <Icon name="info" size={25} color="#fff" />
+                </View>
+            </View>
+
+            <Animated.View style={[photosStyles.titleContainer, { transform: [{ translateY }], opacity: titleOpacity }]}>
+                <Text style={photosStyles.title}>Photos</Text>
+            </Animated.View>
+
+            <FlatList
+                data={mediaData}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={renderMediaItem}
+                numColumns={3}
+                onScroll={Animated.event(
+                    [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+                    { useNativeDriver: false }
+                )}
+                contentContainerStyle={{ marginTop: translateYPhotos + 65 }} // Apply translateY and titleContainer height
+            />
+        </View>
     );
 }
 
