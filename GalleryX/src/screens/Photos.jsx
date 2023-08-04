@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, FlatList, Image, Animated, ScrollView } from "react-native";
+import { Text, View, FlatList, Image, Animated, TouchableOpacity, Modal } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import getMediaFiles from "../funcs/getMediaFiles";
@@ -7,6 +7,7 @@ import photosStyles from "../../assets/styles/photosStyles";
 
 function Photos() {
     const [mediaData, setMediaData] = useState([]);
+    const [selectedImage, setSelectedImage] = useState(null);
     const scrollY = new Animated.Value(0);
 
     useEffect(() => {
@@ -14,10 +15,12 @@ function Photos() {
     }, []);
 
     const renderMediaItem = ({ item }) => (
-        <Image
-            source={{ uri: `file://${item}` }}
-            style={{ width: 122, height: 122, margin: 5 }}
-        />
+        <TouchableOpacity onPress={() => setSelectedImage(item)}>
+            <Image
+                source={{ uri: `file://${item}` }}
+                style={{ width: 122, height: 122, margin: 5 }}
+            />
+        </TouchableOpacity>
     );
 
     const translateY = scrollY.interpolate({
@@ -70,8 +73,21 @@ function Photos() {
                     [{ nativeEvent: { contentOffset: { y: scrollY } } }],
                     { useNativeDriver: false }
                 )}
-                contentContainerStyle={{ marginTop: translateYPhotos + 65 }} // Apply translateY and titleContainer height
+                contentContainerStyle={{ marginTop: translateYPhotos + 65 }}
             />
+
+            <Modal visible={selectedImage !== null} transparent={true}>
+                <View style={{ flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
+                    <View style={{ flex: 1 }}>
+                        <TouchableOpacity style={{ flex: 1 }} onPress={() => setSelectedImage(null)}>
+                            <Image source={{ uri: `file://${selectedImage}` }} style={{ width: '100%', height: '100%' }} resizeMode="contain" />
+                        </TouchableOpacity>
+                        <TouchableOpacity style={photosStyles.closeButton} onPress={() => setSelectedImage(null)}>
+                            <Text style={photosStyles.closeButtonText}>Close</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </Modal>
         </View>
     );
 }
